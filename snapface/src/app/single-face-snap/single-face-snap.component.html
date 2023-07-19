@@ -2,7 +2,11 @@
     <h2>{{faceSnap.title }}</h2>
     <p> {{ faceSnap.description }}</p>
     <p> Mis en ligne: {{faceSnap.createDate | date: "longDate"}}</p>
-    <span [ngStyle]="{color:'rgb(0,'+faceSnap.snaps+',0)'}"> {{ faceSnap.snaps }}</span>
+    <p>
+        <button (clic)="onSnap()">{{ snappedButtonText}}</button>
+        <span [ngStyle]="{color:'rgb(0,'+faceSnap.snaps+',0)'}"> {{ faceSnap.snaps }}</span>
+    </p>
+
     <p *ngIf="faceSnap.location"> Lieu: {{faceSnap.location | uppercase}}</p>
 </div>
 
