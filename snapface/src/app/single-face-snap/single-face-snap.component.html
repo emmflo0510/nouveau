@@ -1,0 +1,15 @@
+<div>
+    <h2>{{faceSnaps[0].title }}</h2>
+    <p> {{ faceSnaps [0].description }}</p>
+    <p> Mis en ligne: {{faceSnaps[0].createDate | date: "longDate"}}</p>
+    <span [ngStyle]="{color:'rgb(0,'+faceSnaps[0].snaps+',0)'}"> {{ faceSnaps[0].snaps }}</span>
+    <p *ngIf="faceSnaps[0].location"> Lieu: {{faceSnaps[0].location | uppercase}}</p>
+</div>
+
+<div>
+    <h2>{{faceSnaps[1].title }}</h2>
+    <p> {{ faceSnaps [1].description }}</p>
+    <p> Mis en ligne: {{faceSnaps[1].createDate | date: "dd/MM/yyyy à HH:mm" }}</p>
+    <span> {{ faceSnaps[1].snaps }}</span>
+    <p *ngIf="faceSnaps[1].location"> Lieu: {{faceSnaps[1].location | uppercase}}</p>
+</div>
