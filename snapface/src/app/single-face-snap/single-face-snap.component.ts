@@ -21,15 +21,18 @@ export class SingleFaceSnapComponent implements OnInit {
   ngOnInit(): void{
     this.snapped = false;
     this.snappedButtonText = "oh Snap!";
+
     const snapId = +this.route.snapshot.params['id'];
     this.faceSnap = this.faceSnapsService.getFaceSnapById(snapId)
   }
 
   onSnap() {
     if (this.snapped){
+      this.faceSnapsService.snapFaceSnapById(this.faceSnap.id, 'unsnap');
       this.snapped = false;
       this.snappedButtonText='oh Snap';
     }else{
+      this.faceSnapsService.snapFaceSnapById(this.faceSnap.id, 'snap');
       this.snapped = true;
       this.snappedButtonText='Snapped!';
     }

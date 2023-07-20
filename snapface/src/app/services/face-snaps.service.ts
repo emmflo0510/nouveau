@@ -14,7 +14,7 @@ export class FaceSnapsService{
           description: "description du facesnap",
           createDate: new Date(),
           snaps: 200,
-          imageUrl:" "
+          imageUrl:"https://images-ext-2.discordapp.net/external/VNhQZjuevR_lph-jf65VGI-93UHl6e4okzGGurxqzTQ/%3Fauto%3Dcompress%26cs%3Dtinysrgb%26w%3D1260%26h%3D750%26dpr%3D2/https/images.pexels.com/photos/129458/pexels-photo-129458.jpeg?width=876&height=584 "
     
         },
         {
@@ -23,7 +23,7 @@ export class FaceSnapsService{
           description: "description blablka du facesnap",
           createDate: new Date(),
           snaps: 0,
-          imageUrl:" ",
+          imageUrl:"https://images-ext-1.discordapp.net/external/RlhgUN5eT4jDuAUtYE7CB5EezSVjQStXYwIfQAI-S10/%3Fauto%3Dcompress%26cs%3Dtinysrgb%26w%3D1260%26h%3D750%26dpr%3D2/https/images.pexels.com/photos/933054/pexels-photo-933054.jpeg?width=874&height=584 ",
           location: "New York"
           
         }
@@ -41,5 +41,8 @@ export class FaceSnapsService{
             throw new Error ('Facesnap unfound');
         }
     }
-
+    snapFaceSnapById(id: number, snapType: 'snap'| 'unsnap'){
+        const faceSnap = this.getFaceSnapById(id);
+        snapType ==='snap'? faceSnap.snaps++ : faceSnap.snaps--;
+    }
 }
