@@ -45,4 +45,18 @@ export class FaceSnapsService{
         const faceSnap = this.getFaceSnapById(id);
         snapType ==='snap'? faceSnap.snaps++ : faceSnap.snaps--;
     }
+    getNewFaceSnap(fromValue: {title: string, description: string, imageUrl: string, location?: string}){
+        const newFaceSnap: FaceSnap = {
+            ...fromValue,
+            snaps: 0,
+            createDate: new Date(),
+            id: this.faceSnaps[this.faceSnaps.length-1].id+1
+        };
+        return newFaceSnap;
+        
+    }
+
+    saveNewFaceSnap(newFaceSnap: FaceSnap){
+        this.faceSnaps.push(newFaceSnap);
+    }
 }
